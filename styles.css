@@ -123,33 +123,79 @@ header {
     width: auto;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav li {
-    margin: 0 1rem;
-}
-
-nav a {
-    color: var(--light-color);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-nav a:hover {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.menu-button .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--dark-color);
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown-menu:hover .dropdown-content,
+.dropdown-menu:focus-within .dropdown-content {
+    display: block;
+}
+
+.dropdown-menu:hover .arrow,
+.dropdown-menu:focus-within .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-content li {
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    display: block;
+    transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
 }
 
 /* Hero Section */
@@ -419,23 +465,33 @@ th {
 /* Next Steps */
 .options-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column;
+    gap: 40px;
     margin: 2rem 0;
 }
 
 .option-box {
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
     background-color: var(--light-color);
     border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.option-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.option-box p, .option-box li {
+    font-size: 1.1rem;
 }
 
 .highlight-option {
     background-color: var(--dark-color);
     color: var(--light-color);
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .highlight-option h3 {
